@@ -5,7 +5,7 @@ require 'rails_helper'
 describe 'V1::Articles' do
 
   describe 'GET /api/v1/articles' do
-    let(:art_1) { Article.create({title: 'Hello', text: 'LKJLJOIJ'})}
+    let(:art_1) { FactoryBot.create(:article, title: 'Hello', text: 'LKJLJOIJsdfasdfswd23342342134swdfasdfzsdf')}
     let(:do_request) { get '/api/v1/articles' }
     let(:expected_response) { Article.all.to_json }
 
@@ -17,7 +17,7 @@ describe 'V1::Articles' do
   end
 
   describe 'GET /api/v1/articles/:article_id' do
-    let(:art_1) { Article.create({title: 'Hello1', text: 'LKJLJOIJ1'})}
+    let(:art_1) { FactoryBot.create(:article, title: 'Hello1', text: 'LKJLJOIJ112123sdfsdfsadfasdfasdf234234234')}
     #let(:art_2) { Article.create({title: 'Hello2', text: 'LKJLJOIJ2'})}
     #let(:art_3) { Article.create({title: 'Hello3', text: 'LKJLJOI3'})}
     #let(:art_4) { Article.create({title: 'Hello4', text: 'LKJLJOIJ4'})}
@@ -43,7 +43,7 @@ describe 'V1::Articles' do
   end
 
   describe 'POST /api/v1/articles' do
-    let(:body) do { title: 'booms', text: 'black' } end
+    let(:body) do { title: 'booms', text: 'blackaaaaaaaaaaaaaaaaaaaaaaa' } end
     let(:do_request) { post '/api/v1/articles', params: body }
 
     it 'create article' do
@@ -53,7 +53,7 @@ describe 'V1::Articles' do
   end
 
   describe 'DELETE /api/v1/articles/:article_id' do
-    let(:art_1) { Article.create({title: 'Hello1', text: 'LKJLJOIJ1'})}
+    let(:art_1) { FactoryBot.create(:article, title: 'Hello1', text: 'LKJLJOIJ1aesfseswefr2341234sdfasdfasf')}
     let(:do_request) {delete "/api/v1/articles/#{art_1.id}"}
 
     it 'return delete response' do
@@ -64,8 +64,8 @@ describe 'V1::Articles' do
   end
 
   describe 'PUT /api/v1/articles/:article_id' do
-    let(:art_1) { Article.create({title: 'Hello1', text: 'LKJLJOIJ1'})}
-    let(:body) do { title: 'booms', text: 'black' } end
+    let(:art_1) { FactoryBot.create(:article, title: 'Hello1', text: 'LKJLJOIJ1awsefawefawefwf24234234234')}
+    let(:body) do { title: 'booms', text: 'blackaasdasdasdasdasdasdassd' } end
     let(:do_request) { put "/api/v1/articles/#{art_1.id}", params: body }
     #let(:expected_response) { .to_json}
     it 'update put response' do

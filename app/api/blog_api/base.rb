@@ -1,7 +1,6 @@
 # frozen_string_literal: true
-
+module BlogApi
   class Base < Grape::API
-    format :json
-    mount V1::Articles
-    mount V1::Comments
+    mount BlogApi::V1::Base
   end
+end
